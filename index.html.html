@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 레시피 화면</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        /* 배너 스타일 */
+        .banner {
+            width: 100%;
+            background-color: #87CEEB; /* 하늘색 배경 */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 검색창 */
+        .header {
+            padding: 10px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .header input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* 카테고리 섹션 */
+        .category-section {
+            padding: 10px;
+            background-color: #f8f8f8;
+        }
+        .category-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .category-button {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            text-decoration: none;
+        }
+        .category-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* 레시피 섹션 */
+        .recipe-section {
+            padding: 10px;
+            background-color: #f8f8f8;
+        }
+        .recipe-title, .board-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .recipe-item, .board-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-decoration: none;
+            color: inherit;
+        }
+        .recipe-item img, .board-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .recipe-info, .board-info {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+        .recipe-info h3, .board-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+        }
+        .recipe-info p, .board-info p {
+            margin: 0;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* 광고 배너 */
+        .ad-banner {
+            position: fixed;
+            bottom: 50px;
+            width: 100%;
+            background-color: #ffeb3b; /* 노란색 배경 */
+            text-align: center;
+            padding: 15px 0;
+            font-size: 16px;
+            font-weight: bold;
+            border-top: 1px solid #ddd;
+        }
+
+        /* 하단 네비게이션 */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid #ddd;
+            padding: 10px 0;
+            z-index: 100;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #555;
+            font-size: 12px;
+            text-align: center;
+        }
+        .footer a:hover {
+            color: #000;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 600px) {
+            .recipe-item img, .board-item img {
+                width: 50px;
+                height: 50px;
+            }
+            .recipe-info h3, .board-info h3 {
+                font-size: 14px;
+            }
+            .recipe-info p, .board-info p {
+                font-size: 11px;
+            }
+            .footer a {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 배너 -->
+    <div class="banner">랩시피</div>
+
+    <!-- 검색창 -->
+    <div class="header">
+        <input type="text" placeholder="검색어를 입력하세요..." id="search-box">
+    </div>
+
+    <!-- 카테고리 섹션 -->
+    <div class="category-section">
+        <div class="category-title">카테고리</div>
+        <div class="category-buttons">
+            <div class="category-button">한식</div>
+            <div class="category-button">일식</div>
+            <div class="category-button">양식</div>
+            <div class="category-button">중식</div>
+
+        </div>
+    </div>
+
+    <!-- 레시피 섹션 -->
+    <div class="recipe-section">
+        <div class="recipe-title">레시피</div>
+        <a href="recipe-detail.html" class="recipe-item">
+              <img src="https://via.placeholder.com/60" alt="음식 사진">
+            <div class="recipe-info">
+                <h3>음식 이름</h3>
+                <p>조리시간: 10분~15분</p>
+            </div>
+        </a>
+        <a href="recipe-detail2.html" class="recipe-item">
+            <img src="https://via.placeholder.com/60" alt="음식 사진">
+            <div class="recipe-info">
+                <h3>다른 음식 이름</h3>
+                <p>조리시간: 20분~30분</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- 게시판 섹션 -->
+    <div class="board-section">
+        <div class="board-title">게시판</div>
+        <a href="board-detail1.html" class="board-item">
+            <img src="https://via.placeholder.com/60" alt="게시판 사진">
+            <div class="board-info">
+                <h3>게시판 내용 1</h3>
+                <p>작성자: 사용자1</p>
+            </div>
+        </a>
+        <a href="board-detail2.html" class="board-item">
+            <img src="https://via.placeholder.com/60" alt="게시판 사진">
+            <div class="board-info">
+                <h3>게시판 내용 2</h3>
+                <p>작성자: 사용자2</p>
+            </div>
+        </a>
+        <a href="board-detail3.html" class="board-item">
+            <img src="https://via.placeholder.com/60" alt="게시판 사진">
+            <div class="board-info">
+                <h3>게시판 내용 3</h3>
+                <p>작성자: 사용자3</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- 광고 배너 -->
+    <div class="ad-banner">광고 배너 영역</div>
+
+    <!-- 하단 네비게이션 -->
+    <div class="footer">
+        <a href="#">홈</a>
+        <a href="#">연구실</a>
+        <a href="#">게시판</a>
+        <a href="#">My Page</a>
+    </div>
+</body>
+</html>
